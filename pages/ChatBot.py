@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image
 import requests
 import os
+LANGFLOW_API_KEY = 'sk-0YEq_gudZNI8V-_h96391QPp9a5FVPAtQL_A9PIlugE'
 
 st.set_page_config(page_title="✨ AI Чат-бот", layout="wide")
 
@@ -64,12 +65,12 @@ st.markdown("""
 
 def get_langflow_response(user_input):
     try:
-        api_key = os.environ["LANGFLOW_API_KEY"]
+        api_key = LANGFLOW_API_KEY
     except KeyError:
         st.error("LANGFLOW_API_KEY environment variable not found. Please set your API key.")
         return None
 
-    url = "http://localhost:7861/api/v1/run/e8a8daf6-34db-4e3b-b7b2-cd9f8e051f24"
+    url = "http://localhost:7860/"
 
     payload = {
         "output_type": "chat",
